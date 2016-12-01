@@ -20,7 +20,6 @@ RUN pip3 install unidecode cherrypy
 
 ENV APP_USER=pi 
 RUN useradd -ms /bin/bash $APP_USER
-RUN mkdir -p /home/$APP_USER/ && chown -R pi:pi /home/$APP_USER/
 USER $APP_USER
 
 RUN mkdir -p /home/$APP_USER/git && cd /home/$APP_USER/git && git clone https://github.com/devsnd/cherrymusic.git cherrymusic/

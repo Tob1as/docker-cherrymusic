@@ -1,5 +1,5 @@
 #FROM resin/raspberrypi2-python:3.5
-FROM tobi312/rpi-raspberrypi2-python:3.5
+FROM tobi312/rpi-raspberrypi2-python-qemu:3.5
 
 MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 

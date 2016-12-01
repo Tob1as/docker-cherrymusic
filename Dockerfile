@@ -22,9 +22,9 @@ ENV APP_USER=pi
 RUN useradd -ms /bin/bash $APP_USER
 USER $APP_USER
 
-RUN mkdir -p /home/$APP_USER/git && cd /home/$APP_USER/git && git clone https://github.com/devsnd/cherrymusic.git
+RUN mkdir -p /home/$APP_USER/Music && mkdir -p /home/$APP_USER/.config/cherrymusic && mkdir -p /home/$APP_USER/.local/share/cherrymusic && mkdir -p /home/$APP_USER/.ssl && mkdir -p /home/$APP_USER/git
 
-RUN mkdir -p /home/$APP_USER/Music && mkdir -p /home/$APP_USER/.config/cherrymusic && mkdir -p /home/$APP_USER/.local/share/cherrymusic && mkdir -p /home/$APP_USER/.ssl
+RUN cd /home/$APP_USER/git && git clone https://github.com/devsnd/cherrymusic.git
 
 COPY cherrymusic.conf /home/$APP_USER/.config/cherrymusic/cherrymusic.conf
 

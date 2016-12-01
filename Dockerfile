@@ -21,16 +21,17 @@ RUN pip3 install unidecode cherrypy
 ENV APP_USER=pi 
 RUN useradd -ms /bin/bash $APP_USER
 USER $APP_USER
-WORKDIR /home/$APP_USER/cherrymusic
 
 RUN mkdir -p /home/$APP_USER/git && cd /home/$APP_USER/git && git clone git://github.com/devsnd/cherrymusic.git
 
-RUN mkdir /home/$APP_USER/Music && mkdir -p /home/$APP_USER/.config/cherrymusic && mkdir -p /home/$APP_USER/.local/share/cherrymusic && mkdir -p /home/$APP_USER/.ssl
+RUN mkdir -p /home/$APP_USER/Music && mkdir -p /home/$APP_USER/.config/cherrymusic && mkdir -p /home/$APP_USER/.local/share/cherrymusic && mkdir -p /home/$APP_USER/.ssl
 
 COPY cherrymusic.conf /home/$APP_USER/.config/cherrymusic/cherrymusic.conf
 
 COPY run.sh /home/$APP_USER/
 RUN chmod +x /home/$APP_USER/run.sh
+
+#WORKDIR /home/$APP_USER/git/cherrymusic
 
 RUN [ "cross-build-end" ]
 

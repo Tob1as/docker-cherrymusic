@@ -1,6 +1,9 @@
-FROM resin/raspberrypi2-python:3.5
+#FROM resin/raspberrypi2-python:3.5
+FROM tobi312/rpi-raspberrypi2-python:3.5
 
 MAINTAINER Tobias Hargesheimer <docker@ison.ws>
+
+RUN [ "cross-build-start" ]
 
 RUN apt-get update && apt-get install -y \
 	git \
@@ -28,6 +31,8 @@ COPY cherrymusic.conf /home/$APP_USER/.config/cherrymusic/cherrymusic.conf
 
 COPY run.sh /home/$APP_USER/
 RUN chmod +x /home/$APP_USER/run.sh
+
+RUN [ "cross-build-end" ]
 
 VOLUME /home/$APP_USER/.config/cherrymusic /home/$APP_USER/.local/share/cherrymusic /home/$APP_USER/.ssl /home/$APP_USER/Music
 EXPOSE 7600/tcp 7700/tcp

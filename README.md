@@ -1,7 +1,7 @@
 # CherryMusic on Raspberry Pi / armhf
 
 ### Supported tags
--	`latest` (*It always uses the latest CherryMusic version from [*github.com/devsnd/cherrymusic*](https://github.com/devsnd/cherrymusic).)
+-	`latest` (*It always uses the latest CherryMusic version from [github.com/devsnd/cherrymusic](https://github.com/devsnd/cherrymusic).*)
 
 ### What is CherryMusic?
 CherryMusic is a open-source music streaming server written in python, that stream your own music collection to all your devices! For more information and downloads please visit [fomori.org/cherrymusic/](http://www.fomori.org/cherrymusic/) or [github.com/devsnd/cherrymusic](https://github.com/devsnd/cherrymusic).

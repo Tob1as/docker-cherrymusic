@@ -1,5 +1,4 @@
-#FROM resin/raspberrypi2-python:3.6
-FROM tobi312/rpi-raspberrypi2-python-qemu:3.6
+FROM resin/raspberrypi2-python:3.6
 
 MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 

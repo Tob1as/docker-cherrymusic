@@ -11,8 +11,10 @@ RUN apt-get update && apt-get install -y \
 	lame \
 	vorbis-tools \
 	flac \
+	faad2 \
 	mpg123 \
 	opus-tools \
+	#ffmpeg \
 	imagemagick \
 	--no-install-recommends && \
 	rm -rf /var/lib/apt/lists/* 

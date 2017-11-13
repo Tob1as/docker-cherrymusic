@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi2-python:3.6
+FROM resin/raspberry-pi-python:3.6
 
 MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 

@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 	lame \
 	vorbis-tools \
 	flac \
-	faad2 \
+	faad \
 	mpg123 \
 	opus-tools \
 	#ffmpeg \

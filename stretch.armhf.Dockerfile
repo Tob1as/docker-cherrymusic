@@ -2,7 +2,7 @@ FROM balenalib/raspberry-pi2-python:3.7
 
 LABEL org.opencontainers.image.authors="Tobias Hargesheimer <docker@ison.ws>" \
 	org.opencontainers.image.title="CherryMusic" \
-	org.opencontainers.image.description="AlpineLinux with CherryMusic on arm arch" \
+	org.opencontainers.image.description="Debian 9 Stretch with CherryMusic on arm arch" \
 	org.opencontainers.image.licenses="Apache-2.0" \
 	org.opencontainers.image.url="https://hub.docker.com/r/tobi312/rpi-cherrymusic" \
 	org.opencontainers.image.source="https://github.com/Tob1asDocker/rpi-cherrymusic"

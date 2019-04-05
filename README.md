@@ -8,7 +8,7 @@ CherryMusic is a open-source music streaming server written in python, that stre
 
 ### How to use this image
 * ``` $ docker pull tobi312/rpi-cherrymusic ```
-* Optional: ``` $ mkdir -p /home/pi/.config/cherrymusic && mkdir -p /home/pi/.local/share/cherrymusic && mkdir -p /home/pi/.ssl && touch /home/pi/.config/cherrymusic/cherrymusic.conf ``` and edit optional [cherrymusic.conf](https://github.com/TobiasH87Docker/rpi-cherrymusic/blob/master/cherrymusic.conf)
+* Optional: ``` $ mkdir -p /home/pi/.config/cherrymusic && mkdir -p /home/pi/.local/share/cherrymusic && mkdir -p /home/pi/.ssl && touch /home/pi/.config/cherrymusic/cherrymusic.conf ``` and edit optional [cherrymusic.conf](https://github.com/Tob1asDocker/rpi-cherrymusic/blob/master/source/cherrymusic.conf)
 * Optional (SSL): 
 	* ``` $ openssl req -x509 -newkey rsa:4086 -subj "/C=/ST=/L=/O=/CN=localhost" -keyout "ssl.key" -out "ssl.crt" -days 3650 -nodes -sha256 ```
 	* ``` $ mv ssl.* /home/pi/.ssl/ ```

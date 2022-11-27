@@ -13,12 +13,13 @@ services:
       - 8443:8443/tcp
     environment:
       CONFIG_DOWNLOAD_ENABLE: "1" # optional, for first start!
-    #  KEY: "VAR"
+      #SELF_SIGNED_CERT_CREATE: "1"
+      #SERVER_SSL_ENABLED: "True"
     volumes:
       - ./config:/cherrymusic/.config/cherrymusic:rw
       - ./data:/cherrymusic/.local/share/cherrymusic:rw
       - ./Music:/cherrymusic/Music:ro
-      - ./ssl:/cherrymusic/ssl:ro
+      - ./ssl:/cherrymusic/ssl:rw
     healthcheck:
       test: ["CMD-SHELL", "nc -nzv -w 3 127.0.0.1 8080 || exit 1"]
       interval: 60s

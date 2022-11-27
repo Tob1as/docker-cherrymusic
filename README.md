@@ -12,7 +12,7 @@
 
 ### How to use this image
 
-* see `docker-compose.yml`-File
+* see [docker-compose.yml](https://github.com/Tob1asDocker/rpi-cherrymusic/blob/master/docker-compose.yml)-File
 * Call http://localhost:8080 or with SSL https://localhost:8443  
 (First call genarate a admin account!)
 

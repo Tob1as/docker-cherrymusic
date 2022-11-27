@@ -17,6 +17,7 @@ RUN \
     chmod +x /usr/local/bin/docker-entrypoint.sh ; \
     apk add --no-cache \
         git \
+        openssl \
         lame \
         vorbis-tools \
         flac \

@@ -2,7 +2,7 @@ FROM python:3.11-alpine3.16
 
 LABEL org.opencontainers.image.authors="Tobias Hargesheimer <docker@ison.ws>" \
 	org.opencontainers.image.title="CherryMusic" \
-	org.opencontainers.image.description="Stream your own music collection to all your devices!" \
+	org.opencontainers.image.description="CherryMusic: Stream your own music collection to all your devices!" \
 	org.opencontainers.image.licenses="GPL-3.0" \
 	org.opencontainers.image.url="https://hub.docker.com/r/tobi312/rpi-cherrymusic" \
 	org.opencontainers.image.source="https://github.com/Tob1asDocker/rpi-cherrymusic"

@@ -16,7 +16,7 @@ services:
     volumes:
       - ./config:/cherrymusic/.config/cherrymusic:rw
       - ./data:/cherrymusic/.local/share/cherrymusic:rw
-      - ./Music:/cherrymusic/Music:rw
+      - ./Music:/cherrymusic/Music:ro
       - ./ssl:/cherrymusic/ssl:ro
     healthcheck:
       test: ["CMD-SHELL", "nc -nzv -w 3 127.0.0.1 8080 || exit 1"]

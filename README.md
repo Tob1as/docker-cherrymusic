@@ -1,20 +1,20 @@
-# CherryMusic on Raspberry Pi / ARM
+# CherryMusic (Docker Image) 
 
-### Supported tags
--	`latest` (*It always uses the latest CherryMusic version from [github.com/devsnd/cherrymusic](https://github.com/devsnd/cherrymusic).*)
+### Supported tags and respective `Dockerfile` links
+- [`alpine` (*Dockerfile*)](https://github.com/Tob1asDocker/rpi-cherrymusic/blob/master/alpine.Dockerfile)
+  
+*It always uses the latest CherryMusic version from [master](https://github.com/devsnd/cherrymusic/tree/master)-branch from git.  
+(branches: master=stable-version, devel=development-version)*
 
 ### What is CherryMusic?
-CherryMusic is a open-source music streaming server written in python, that stream your own music collection to all your devices! For more information and downloads please visit [fomori.org/cherrymusic/](http://www.fomori.org/cherrymusic/) or [github.com/devsnd/cherrymusic](https://github.com/devsnd/cherrymusic).
+
+![logo](https://raw.githubusercontent.com/devsnd/cherrymusic/master/res/img/favicon32.png)  [CherryMusic](https://github.com/devsnd/cherrymusic) is a music streaming server based on [CherryPy](https://github.com/cherrypy/cherrypy) and [jPlayer](https://github.com/jplayer/jPlayer). It plays the music inside your PC, smartphone, tablet, toaster or whatever device has a HTML5 compliant browser installed. For more information visit [github.com/devsnd/cherrymusic](https://github.com/devsnd/cherrymusic)
 
 ### How to use this image
-* ``` $ docker pull tobi312/rpi-cherrymusic ```
-* Optional: ``` $ mkdir -p /home/pi/.config/cherrymusic && mkdir -p /home/pi/.local/share/cherrymusic && mkdir -p /home/pi/.ssl && touch /home/pi/.config/cherrymusic/cherrymusic.conf ``` and edit optional [cherrymusic.conf](https://github.com/Tob1asDocker/rpi-cherrymusic/blob/master/source/cherrymusic.conf)
-* Optional (SSL): 
-	* ``` $ openssl req -x509 -newkey rsa:4086 -subj "/C=/ST=/L=/O=/CN=localhost" -keyout "ssl.key" -out "ssl.crt" -days 3650 -nodes -sha256 ```
-	* ``` $ mv ssl.* /home/pi/.ssl/ ```
-* ``` $ docker run --name cherrymusic -d -v /home/pi/.config/cherrymusic:/home/pi/.config/cherrymusic -v /home/pi/.local/share/cherrymusic:/home/pi/.local/share/cherrymusic -v /home/pi/.ssl:/home/pi/.ssl:ro -v /home/pi/Music:/home/pi/Music:ro -p 7600:7600 -p 7700:7700 tobi312/rpi-cherrymusic ```
 
-* http://localhost:7600 or with SSL https://localhost:7700 (First call genarate a admin account.)
+* see `docker-compose.yml`-File
+* Call http://localhost:8080 or with SSL https://localhost:8443  
+(First call genarate a admin account!)
 
 ### This Image on
 * [DockerHub](https://hub.docker.com/r/tobi312/rpi-cherrymusic/)

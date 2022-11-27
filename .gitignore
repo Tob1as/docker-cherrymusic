@@ -1,3 +1,9 @@
 # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 .idea/
 *.iml
+# vscode
+.vscode/
+# cherrymusic
+config/
+local/
+data/

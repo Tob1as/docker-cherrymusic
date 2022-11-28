@@ -16,8 +16,6 @@ RUN \
     adduser --system --shell /sbin/nologin --uid 1000 --ingroup cherrymusic --home /cherrymusic cherrymusic ; \
     chmod +x /usr/local/bin/docker-entrypoint.sh ; \
     apk add --no-cache \
-        git \
-        openssl \
         lame \
         vorbis-tools \
         flac \
@@ -26,17 +24,19 @@ RUN \
         opus-tools \
         #ffmpeg \
         imagemagick \
+        openssl \
     ; \
-    apk add --no-cache \
-        py3-unidecode \
-        py3-gobject3 \
-        #py3-cherrypy \
+    apk add --no-cache --virtual .build-deps \
+        gcc \
+        musl-dev \
+        cairo-dev \
+        gobject-introspection-dev \
+        git \
     ; \
-    #pip3 install --no-cache-dir Unidecode ; \
-    #pip3 install --no-cache-dir PyGObject ; \
-    pip3 install --no-cache-dir CherryPy ; \
+    pip3 install --no-cache-dir Unidecode PyGObject CherryPy ; \
     git clone --branch master --single-branch https://github.com/devsnd/cherrymusic.git /cherrymusic/app ; \
     rm -r /cherrymusic/app/.git ; \
+    apk del --no-network --purge .build-deps ; \
     #mkdir -p /cherrymusic/{.config/cherrymusic,.local/share/cherrymusic,Music,ssl} ; \
     mkdir -p /cherrymusic/.config/cherrymusic ; \
     mkdir -p /cherrymusic/.local/share/cherrymusic ; \
@@ -44,7 +44,7 @@ RUN \
     mkdir -p /cherrymusic/ssl ; \
     chown -R cherrymusic:cherrymusic /cherrymusic
 
-VOLUME /cherrymusic/.config/cherrymusic /cherrymusic/.local/share/cherrymusic /cherrymusic/ssl /cherrymusic/Music
+VOLUME /cherrymusic/.config/cherrymusic /cherrymusic/.local/share/cherrymusic
 WORKDIR /cherrymusic
 USER cherrymusic
 EXPOSE 8080/tcp 8443/tcp

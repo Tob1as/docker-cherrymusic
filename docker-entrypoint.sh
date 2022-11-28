@@ -147,11 +147,13 @@ fi
 if [ -n "$SERVER_SSL_CERTIFICATE" -a -f "${CONFIG_PATH}" ]; then
     echo ">> set ssl_certificate = ${SERVER_SSL_CERTIFICATE} ..."
     sed -i "s|ssl_certificate =.*|ssl_certificate = ${SERVER_SSL_CERTIFICATE}|g" ${CONFIG_PATH}
+    #sed -i "s|ssl_certificate =.*|ssl_certificate = ${SERVER_SSL_CERTIFICATE_RECOMMENDED}|g" ${CONFIG_PATH}
 fi
 
-if [ -n "$SERVER_SSL_CERTIFICATE" -a -f "${CONFIG_PATH}" ]; then
-    echo ">> set ssl_private_key = ${SERVER_SSL_CERTIFICATE} ..."
-    sed -i "s|ssl_private_key =.*|ssl_private_key = ${SERVER_SSL_CERTIFICATE}|g" ${CONFIG_PATH}
+if [ -n "$SERVER_SSL_PRIVATE_KEY" -a -f "${CONFIG_PATH}" ]; then
+    echo ">> set ssl_private_key = ${SERVER_SSL_PRIVATE_KEY} ..."
+    sed -i "s|ssl_private_key =.*|ssl_private_key = ${SERVER_SSL_PRIVATE_KEY}|g" ${CONFIG_PATH}
+    #sed -i "s|ssl_private_key =.*|ssl_private_key = ${SERVER_SSL_PRIVATE_KEY_RECOMMENDED}|g" ${CONFIG_PATH}
 fi
 
 if [ -n "$GENERAL_UPDATE_NOTIFICATION" -a -f "${CONFIG_PATH}" ]; then

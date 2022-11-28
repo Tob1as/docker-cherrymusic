@@ -1,5 +1,9 @@
 FROM python:3.11.0-slim-bullseye
 
+ARG BUILD_DATE
+ARG VCS_REF
+ARG CHERRYMUSIC_VERSION
+
 LABEL org.opencontainers.image.authors="Tobias Hargesheimer <docker@ison.ws>" \
     org.opencontainers.image.title="CherryMusic" \
     org.opencontainers.image.description="CherryMusic: Stream your own music collection to all your devices!" \

@@ -2,6 +2,7 @@
 
 ### Supported tags and respective `Dockerfile` links
 - [`alpine` (*Dockerfile*)](https://github.com/Tob1asDocker/rpi-cherrymusic/blob/master/alpine.Dockerfile)
+- [`debian` (*Dockerfile*)](https://github.com/Tob1asDocker/rpi-cherrymusic/blob/master/debian.Dockerfile)
   
 *It always uses the latest CherryMusic version from [master](https://github.com/devsnd/cherrymusic/tree/master)-branch from git.  
 (branches: master=stable-version, devel=development-version)*

@@ -1,4 +1,4 @@
-name: 'build docker images: CherryMusic (Alpine)'
+name: 'build docker images: CherryMusic (Debian)'
 
 on:
   #push:
@@ -8,7 +8,7 @@ on:
   #  paths:
   #    - 'Dockerfile'
   #    - 'docker-entrypoint.sh'
-  #    - '.github/workflows/build_docker_images-alpine.yaml'
+  #    - '.github/workflows/build_docker_images-debian.yaml'
   workflow_dispatch:
   schedule:
     - cron: '30 5 26 * *'  # At 05:30 on day-of-month 26.
@@ -80,7 +80,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
-          file: ./alpine.Dockerfile
+          file: ./debian.Dockerfile
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           pull: true
           push: true
@@ -89,10 +89,10 @@ jobs:
             BUILD_DATE=${{steps.script.outputs.build_date}}
             VCS_REF=${{steps.script.outputs.commit_hash}}
           tags: |
-            docker.io/${{steps.script.outputs.docker_repo}}:alpine
-          #  ghcr.io/${{steps.script.outputs.github_repo}}:alpine-${{steps.script.outputs.build_date_numeric}}.${{steps.script.outputs.commit_hash}}
-          #  ghcr.io/${{steps.script.outputs.github_repo}}:alpine
-          #  quay.io/${{steps.script.outputs.redhat_quay_repo}}:alpine
+            docker.io/${{steps.script.outputs.docker_repo}}:debian
+          #  ghcr.io/${{steps.script.outputs.github_repo}}:debian-${{steps.script.outputs.build_date_numeric}}.${{steps.script.outputs.commit_hash}}
+          #  ghcr.io/${{steps.script.outputs.github_repo}}:debian
+          #  quay.io/${{steps.script.outputs.redhat_quay_repo}}:debian
 
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v3

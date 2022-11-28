@@ -1,4 +1,4 @@
-FROM python:3.11-alpine3.16
+FROM python:3.11.0-slim-bullseye
 
 LABEL org.opencontainers.image.authors="Tobias Hargesheimer <docker@ison.ws>" \
 	org.opencontainers.image.title="CherryMusic" \
@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.authors="Tobias Hargesheimer <docker@ison.ws>" \
 	org.opencontainers.image.url="https://hub.docker.com/r/tobi312/rpi-cherrymusic" \
 	org.opencontainers.image.source="https://github.com/Tob1asDocker/rpi-cherrymusic"
 
-SHELL ["/bin/sh", "-euxo", "pipefail", "-c"]
+SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
@@ -15,33 +15,30 @@ RUN \
     addgroup --gid 1000 cherrymusic ; \
     adduser --system --shell /sbin/nologin --uid 1000 --ingroup cherrymusic --home /cherrymusic cherrymusic ; \
     chmod +x /usr/local/bin/docker-entrypoint.sh ; \
-    apk add --no-cache \
+    apt-get update ; \
+    apt-get install -y --no-install-recommends \
         lame \
         vorbis-tools \
         flac \
-        faad2 \
+        faad \
         mpg123 \
         opus-tools \
         #ffmpeg \
         imagemagick \
-        openssl \
+        wget netcat-openbsd \
     ; \
-    apk add --no-cache --virtual .build-deps \
-        gcc \
-        musl-dev \
-        cairo-dev \
-        gobject-introspection-dev \
-        git \
+    #rm -rf /var/lib/apt/lists/*	; \
+    BUILD_DEPS='gcc libcairo2-dev libgirepository1.0-dev git'; \
+    #apt-get update ; \
+    apt-get install -y --no-install-recommends \
+        $BUILD_DEPS \
     ; \
     pip3 install --no-cache-dir Unidecode PyGObject CherryPy ; \
     git clone --branch master --single-branch https://github.com/devsnd/cherrymusic.git /cherrymusic/app ; \
     rm -r /cherrymusic/app/.git ; \
-    apk del --no-network --purge .build-deps ; \
-    #mkdir -p /cherrymusic/{.config/cherrymusic,.local/share/cherrymusic,Music,ssl} ; \
-    mkdir -p /cherrymusic/.config/cherrymusic ; \
-    mkdir -p /cherrymusic/.local/share/cherrymusic ; \
-    mkdir -p /cherrymusic/Music ; \
-    mkdir -p /cherrymusic/ssl ; \
+    apt remove --purge -y $BUILD_DEPS; apt autoremove -y ; \
+    rm -rf /var/lib/apt/lists/*	; \
+    mkdir -p /cherrymusic/{.config/cherrymusic,.local/share/cherrymusic,Music,ssl} ; \
     chown -R cherrymusic:cherrymusic /cherrymusic
 
 VOLUME /cherrymusic/.config/cherrymusic /cherrymusic/.local/share/cherrymusic

@@ -1,11 +1,14 @@
 FROM python:3.11.0-slim-bullseye
 
 LABEL org.opencontainers.image.authors="Tobias Hargesheimer <docker@ison.ws>" \
-	org.opencontainers.image.title="CherryMusic" \
-	org.opencontainers.image.description="CherryMusic: Stream your own music collection to all your devices!" \
-	org.opencontainers.image.licenses="GPL-3.0" \
-	org.opencontainers.image.url="https://hub.docker.com/r/tobi312/rpi-cherrymusic" \
-	org.opencontainers.image.source="https://github.com/Tob1asDocker/rpi-cherrymusic"
+    org.opencontainers.image.title="CherryMusic" \
+    org.opencontainers.image.description="CherryMusic: Stream your own music collection to all your devices!" \
+    org.opencontainers.image.licenses="GPL-3.0" \
+    org.opencontainers.image.version="${CHERRYMUSIC_VERSION}" \
+    org.opencontainers.image.created="${BUILD_DATE}" \
+    org.opencontainers.image.revision="${VCS_REF}" \
+    org.opencontainers.image.url="https://hub.docker.com/r/tobi312/rpi-cherrymusic" \
+    org.opencontainers.image.source="https://github.com/Tob1asDocker/rpi-cherrymusic"
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 

@@ -3,7 +3,7 @@ set -eu
 
 # BASE
 : "${CONFIG_DOWNLOAD_ENABLE:="1"}"
-: "${CONFIG_DOWNLOAD_URL:="https://raw.githubusercontent.com/Tob1asDocker/rpi-cherrymusic/master/cherrymusic.conf"}"
+: "${CONFIG_DOWNLOAD_URL:="https://raw.githubusercontent.com/Tob1as/docker-cherrymusic/master/cherrymusic.conf"}"
 : "${CONFIG_PATH:="/cherrymusic/.config/cherrymusic/cherrymusic.conf"}" # DO NOT CHANGE !
 # CONFIG for cherrymusic.conf (settings will only changes when value is set and config is exists (from Download))
 : "${MEDIA_BASEDIR:=""}"                    # default: none, recommended: /cherrymusic/Music

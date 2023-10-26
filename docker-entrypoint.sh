@@ -29,7 +29,7 @@ set -eu
 : "${SERVER_SSL_PRIVATE_KEY:=""}"           # default: certs/server.key, recommended: /cherrymusic/ssl/server.key
 : "${GENERAL_UPDATE_NOTIFICATION:=""}"      # default: True
 # Other Settings
-: "${SELF_SIGNED_CERT_CREATE:="0"}"  # create self-signed certificate, default: 0 (=False)
+: "${SELF_SIGNED_CERT_CREATE:="0"}"  # create self-signed certificate, default: 0 (=False), it is recommended to better use a proxy.
 SERVER_SSL_CERTIFICATE_RECOMMENDED="/cherrymusic/ssl/server.crt"
 SERVER_SSL_PRIVATE_KEY_RECOMMENDED="/cherrymusic/ssl/server.key"
 

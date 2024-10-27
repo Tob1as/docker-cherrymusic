@@ -35,7 +35,7 @@ RUN \
         wget netcat-openbsd \
     ; \
     #rm -rf /var/lib/apt/lists/*	; \
-    BUILD_DEPS='gcc libcairo2-dev libgirepository1.0-dev git cmark'; \
+    BUILD_DEPS='gcc libcairo2-dev libgirepository1.0-dev git'; \
     #apt-get update ; \
     apt-get install -y --no-install-recommends \
         $BUILD_DEPS \

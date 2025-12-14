@@ -1,4 +1,4 @@
-FROM python:3.13-slim-bookworm
+FROM python:3.14-slim-trixie
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -35,7 +35,7 @@ RUN \
         wget netcat-openbsd \
     ; \
     #rm -rf /var/lib/apt/lists/*	; \
-    BUILD_DEPS='gcc libcairo2-dev libgirepository1.0-dev git'; \
+    BUILD_DEPS='gcc libcairo2-dev libgirepository-2.0-dev git'; \
     #apt-get update ; \
     apt-get install -y --no-install-recommends \
         $BUILD_DEPS \
